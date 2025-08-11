@@ -1,3 +1,104 @@
+/* Hamburger menu styles */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 38px;
+  height: 38px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 1rem;
+  z-index: 20;
+}
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--wm-accent);
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+@media (max-width: 800px) {
+  .brand-row {
+    position: relative;
+    flex-wrap: wrap;
+  }
+  .hamburger {
+    display: flex;
+    z-index: 30;
+  }
+  .brand-row nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    min-width: 180px;
+    width: max-content;
+    background: none;
+    box-shadow: none;
+    z-index: 20;
+  }
+  .brand-row nav ul {
+    position: static;
+    margin: 0;
+    padding: 0.5rem 0;
+    background: #fff;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 6px 24px 0 rgba(30,40,60,0.13);
+    border-radius: 0 0 8px 8px;
+    border: 1px solid var(--wm-border);
+    border-top: none;
+    display: none;
+    min-width: 180px;
+    animation: fadeInMenu 0.18s ease;
+  }
+  .brand-row nav.nav-open > ul {
+    display: flex;
+  }
+  .brand-row nav ul li {
+    border-bottom: 1px solid var(--wm-border);
+    margin: 0;
+    padding: 0 1.2rem;
+  }
+  .brand-row nav ul li:last-child {
+    border-bottom: none;
+  }
+  .brand-row nav a {
+    padding: 0.7rem 0;
+    width: 100%;
+    display: block;
+  }
+}
+
+@keyframes fadeInMenu {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 800px) {
+  .brand-row { flex-wrap: wrap; }
+  nav { flex: 1 1 100%; }
+}
+
+
+
+/* Footer block padding for consistency */
+.footer-block.footer-block-padded {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+@media (max-width: 800px) {
+  .footer-block.footer-block-padded {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
 /* Pastel backgrounds for each team bio card */
 .team-bios-grid > .team-bio-card:nth-child(10n+1) { background: var(--wm-pastel-blue); }
 .team-bios-grid > .team-bio-card:nth-child(10n+2) { background: var(--wm-pastel-mint); }
